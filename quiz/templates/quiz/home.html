@@ -1,14 +1,6 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QuizApp</title>
-    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
-  </head>
-  <body>
-    Hello from Quiz Homes
-  </body>
-</html>
+{% extends 'quiz/main.html' %} {% block content %}
+<div class="master-holder">
+  <h1 style="color: rgb(1, 115, 116);">Quiz</h1>
+  <div class="question-holder"><h2>Question</h2></div>
+</div>
+{% endblock %}
