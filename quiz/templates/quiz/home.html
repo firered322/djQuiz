@@ -1,6 +1,10 @@
 {% extends 'quiz/main.html' %} {% block content %}
 <div class="master-holder">
   <h1 style="color: rgb(1, 115, 116);">Quiz</h1>
-  <div class="question-holder"><h2>Question</h2></div>
+  <div class="question-holder">
+    <h2>Question</h2>
+    <p>{{ question }}</p>
+  </div>
+
 </div>
 {% endblock %}
