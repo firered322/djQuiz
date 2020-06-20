@@ -1,0 +1,28 @@
+{% extends 'quiz/main.html' %}
+{% block content %}
+<div class='master-holder'>
+<h3>Register</h3>
+  <form action="" method="POST">
+  {% csrf_token %}  
+  <div class="form-group">
+    Username<br/>
+    {{form.username}}
+  </div>
+  <div class="form-group">
+    Email<br/>
+    {{form.email}}
+  </div>
+  <div class="form-group">
+    Password<br/>
+    {{form.password1}}
+  </div>
+  <div class="form-group">
+  Confirm Password<br/>
+    {{form.password2}}
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{{form.errors}}
+</div>
+
+{% endblock %}
