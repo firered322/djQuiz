@@ -1,7 +1,7 @@
 {% extends 'quiz/main.html' %} {% block content %}
 <div class="master-holder">
   <h1 style="color: rgb(1, 115, 116);">Quiz</h1>
-  <div class="question-holder">
+  <div class="question-holder mb-5">
     <h2>Question</h2>
     <p>{{ question }}</p>
     <ul>
@@ -10,6 +10,7 @@
     {% endfor %}
     </ul>
   </div>
-
+<div style="display: inline-block"><a href="{% url 'register' %}">Register</a> now to know the answer!</div>
+<div style="display: inline-block">Already a user? <a href="{% url 'login' %}">Login</a></div>
 </div>
 {% endblock %}

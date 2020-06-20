@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from random import randrange
 from .models import Question
 from .forms import CreateUserForm
 
@@ -23,7 +24,10 @@ def registerPage(request):
 
 
 def home(request):
-    question = Question.objects.get(id=1)
+    questions = Question.objects.all()
+    context = {}
+    print(questions[randrange(len(questions))])
+    question = questions[randrange(len(questions))]
     answers = question.answer_set.all()
     context = {'question': question, 'answers': answers}
     # print(answers)
@@ -53,12 +57,8 @@ def loginUser(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect('login')
+    return redirect('home')
 
 
 def userhome(request):
-    # question = Question.objects.get(id=1)
-    # answers = question.answer_set.all()
-    # context = {'question': question, 'answers': answers}
-    # print(answers)
     return render(request, 'quiz/userhome.html')
