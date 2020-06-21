@@ -17,6 +17,7 @@
 {% for message in messages %}
 	<p id="messages">{{message}}</p>
 {% endfor %}
+<div class="mt-2" style="display: inline-block">Not yet signed up? <a href="{% url 'register' %}">Register</a> now.</div>
 </div>
 
 {% endblock %}

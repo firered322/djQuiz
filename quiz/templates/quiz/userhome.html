@@ -39,7 +39,11 @@
     {% include 'quiz/navbar.html' %}
       
     <div class="container-fluid">
-    <div class="master-holder">HIHIA</div>
+    {{question}}
+    {% for a in answers %}
+      <p>{{a}}</p>
+    {% endfor %}
+      <div class="master-holder">{{answer}}</div>
     </div>
   </body>
 

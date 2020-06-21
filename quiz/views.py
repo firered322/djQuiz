@@ -23,17 +23,6 @@ def registerPage(request):
         return render(request, 'quiz/register.html', context)
 
 
-def home(request):
-    questions = Question.objects.all()
-    context = {}
-    print(questions[randrange(len(questions))])
-    question = questions[randrange(len(questions))]
-    answers = question.answer_set.all()
-    context = {'question': question, 'answers': answers}
-    # print(answers)
-    return render(request, 'quiz/home.html', context)
-
-
 def loginUser(request):
     context = {}
     if request.user.is_authenticated:
@@ -60,5 +49,21 @@ def logoutUser(request):
     return redirect('home')
 
 
+def home(request):
+    questions = Question.objects.all()
+    question = questions[randrange(len(questions))]
+    answers = question.answer_set.all()
+
+    if request.method == 'POST':
+        print(request.POST['answer'])
+        context = {'question': question, 'answers': answers,
+                   'answer': request.POST['answer']}
+        return render(request, 'quiz/userhome.html', context)
+    context = {'question': question, 'answers': answers}
+    # print(answers)
+    return render(request, 'quiz/home.html', context)
+
+
+# @login_required(login_url='login')
 def userhome(request):
     return render(request, 'quiz/userhome.html')

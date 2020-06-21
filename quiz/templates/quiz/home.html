@@ -3,12 +3,15 @@
   <h1 style="color: rgb(1, 115, 116);">Quiz</h1>
   <div class="question-holder mb-5">
     <h2>Question</h2>
-    <p>{{ question }}</p>
-    <ul>
+    <h3>{{ question }}</h3>
+    <form action="" method="POST">
+    {% csrf_token %}
     {% for answer in answers %}
-      <li>{{ answer }}</li>
-    {% endfor %}
-    </ul>
+      <input type="radio" id="{{answer.answer}}" name="answer" value="{{answer.answer}}">
+      <label for="{{answer.answer}}">{{answer.answer}}</label><br>
+    {% endfor %} 
+    <input class="btn btn-outline-dark" type="submit" value="Submit">
+    </form>
   </div>
 <div style="display: inline-block"><a href="{% url 'register' %}">Register</a> now to know the answer!</div>
 <div style="display: inline-block">Already a user? <a href="{% url 'login' %}">Login</a></div>
